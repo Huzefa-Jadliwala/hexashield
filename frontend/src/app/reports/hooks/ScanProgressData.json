@@ -1,0 +1,524 @@
+{
+    "progress": 21,
+    "scan_progress": {
+        "HostProcess": [
+            {
+                "Plugin": [
+                    "Path Traversal",
+                    "6",
+                    "release",
+                    "Complete",
+                    "73738",
+                    "3900",
+                    "0"
+                ]
+            },
+            {
+                "Plugin": [
+                    "Remote File Inclusion",
+                    "7",
+                    "release",
+                    "Complete",
+                    "46077",
+                    "2280",
+                    "0"
+                ]
+            },
+            {
+                "Plugin": [
+                    "Source Code Disclosure - /WEB-INF Folder",
+                    "10045",
+                    "release",
+                    "Complete",
+                    "111",
+                    "2",
+                    "0"
+                ]
+            },
+            {
+                "Plugin": [
+                    "Heartbleed OpenSSL Vulnerability",
+                    "20015",
+                    "release",
+                    "Complete",
+                    "340",
+                    "4",
+                    "0"
+                ]
+            },
+            {
+                "Plugin": [
+                    "Source Code Disclosure - CVE-2012-1823",
+                    "20017",
+                    "release",
+                    "Complete",
+                    "19617",
+                    "97",
+                    "0"
+                ]
+            },
+            {
+                "Plugin": [
+                    "Remote Code Execution - CVE-2012-1823",
+                    "20018",
+                    "release",
+                    "Complete",
+                    "51527",
+                    "2274",
+                    "0"
+                ]
+            },
+            {
+                "Plugin": [
+                    "External Redirect",
+                    "20019",
+                    "release",
+                    "Complete",
+                    "66730",
+                    "2052",
+                    "0"
+                ]
+            },
+            {
+                "Plugin": [
+                    "Server Side Include",
+                    "40009",
+                    "release",
+                    "Complete",
+                    "50508",
+                    "912",
+                    "0"
+                ]
+            },
+            {
+                "Plugin": [
+                    "Cross Site Scripting (Reflected)",
+                    "40012",
+                    "release",
+                    "Complete",
+                    "59771",
+                    "1149",
+                    "0"
+                ]
+            },
+            {
+                "Plugin": [
+                    "Cross Site Scripting (Persistent) - Prime",
+                    "40016",
+                    "release",
+                    "Complete",
+                    "28280",
+                    "228",
+                    "0"
+                ]
+            },
+            {
+                "Plugin": [
+                    "Cross Site Scripting (Persistent) - Spider",
+                    "40017",
+                    "release",
+                    "31%",
+                    "34159",
+                    "351",
+                    "0"
+                ]
+            },
+            {
+                "Plugin": [
+                    "Cross Site Scripting (Persistent)",
+                    "40014",
+                    "release",
+                    "Pending",
+                    "0",
+                    "0",
+                    "0"
+                ]
+            },
+            {
+                "Plugin": [
+                    "SQL Injection",
+                    "40018",
+                    "release",
+                    "Pending",
+                    "0",
+                    "0",
+                    "0"
+                ]
+            },
+            {
+                "Plugin": [
+                    "SQL Injection - MySQL",
+                    "40019",
+                    "release",
+                    "Pending",
+                    "0",
+                    "0",
+                    "0"
+                ]
+            },
+            {
+                "Plugin": [
+                    "SQL Injection - Hypersonic SQL",
+                    "40020",
+                    "release",
+                    "Pending",
+                    "0",
+                    "0",
+                    "0"
+                ]
+            },
+            {
+                "Plugin": [
+                    "SQL Injection - Oracle",
+                    "40021",
+                    "release",
+                    "Pending",
+                    "0",
+                    "0",
+                    "0"
+                ]
+            },
+            {
+                "Plugin": [
+                    "SQL Injection - PostgreSQL",
+                    "40022",
+                    "release",
+                    "Pending",
+                    "0",
+                    "0",
+                    "0"
+                ]
+            },
+            {
+                "Plugin": [
+                    "SQL Injection - SQLite",
+                    "40024",
+                    "release",
+                    "Pending",
+                    "0",
+                    "0",
+                    "0"
+                ]
+            },
+            {
+                "Plugin": [
+                    "Cross Site Scripting (DOM Based)",
+                    "40026",
+                    "release",
+                    "Pending",
+                    "0",
+                    "0",
+                    "0"
+                ]
+            },
+            {
+                "Plugin": [
+                    "SQL Injection - MsSQL",
+                    "40027",
+                    "release",
+                    "Pending",
+                    "0",
+                    "0",
+                    "0"
+                ]
+            },
+            {
+                "Plugin": [
+                    "Log4Shell",
+                    "40043",
+                    "release",
+                    "Pending",
+                    "0",
+                    "0",
+                    "0"
+                ]
+            },
+            {
+                "Plugin": [
+                    "Spring4Shell",
+                    "40045",
+                    "release",
+                    "Pending",
+                    "0",
+                    "0",
+                    "0"
+                ]
+            },
+            {
+                "Plugin": [
+                    "Server Side Code Injection",
+                    "90019",
+                    "release",
+                    "Pending",
+                    "0",
+                    "0",
+                    "0"
+                ]
+            },
+            {
+                "Plugin": [
+                    "Remote OS Command Injection",
+                    "90020",
+                    "release",
+                    "Pending",
+                    "0",
+                    "0",
+                    "0"
+                ]
+            },
+            {
+                "Plugin": [
+                    "XPath Injection",
+                    "90021",
+                    "release",
+                    "Pending",
+                    "0",
+                    "0",
+                    "0"
+                ]
+            },
+            {
+                "Plugin": [
+                    "XML External Entity Attack",
+                    "90023",
+                    "release",
+                    "Pending",
+                    "0",
+                    "0",
+                    "0"
+                ]
+            },
+            {
+                "Plugin": [
+                    "Generic Padding Oracle",
+                    "90024",
+                    "release",
+                    "Pending",
+                    "0",
+                    "0",
+                    "0"
+                ]
+            },
+            {
+                "Plugin": [
+                    "Cloud Metadata Potentially Exposed",
+                    "90034",
+                    "release",
+                    "Pending",
+                    "0",
+                    "0",
+                    "0"
+                ]
+            },
+            {
+                "Plugin": [
+                    "Server Side Template Injection",
+                    "90035",
+                    "release",
+                    "Pending",
+                    "0",
+                    "0",
+                    "0"
+                ]
+            },
+            {
+                "Plugin": [
+                    "Server Side Template Injection (Blind)",
+                    "90036",
+                    "release",
+                    "Pending",
+                    "0",
+                    "0",
+                    "0"
+                ]
+            },
+            {
+                "Plugin": [
+                    "Directory Browsing",
+                    "0",
+                    "release",
+                    "Pending",
+                    "0",
+                    "0",
+                    "0"
+                ]
+            },
+            {
+                "Plugin": [
+                    "Buffer Overflow",
+                    "30001",
+                    "release",
+                    "Pending",
+                    "0",
+                    "0",
+                    "0"
+                ]
+            },
+            {
+                "Plugin": [
+                    "Format String Error",
+                    "30002",
+                    "release",
+                    "Pending",
+                    "0",
+                    "0",
+                    "0"
+                ]
+            },
+            {
+                "Plugin": [
+                    "CRLF Injection",
+                    "40003",
+                    "release",
+                    "Pending",
+                    "0",
+                    "0",
+                    "0"
+                ]
+            },
+            {
+                "Plugin": [
+                    "Parameter Tampering",
+                    "40008",
+                    "release",
+                    "Pending",
+                    "0",
+                    "0",
+                    "0"
+                ]
+            },
+            {
+                "Plugin": [
+                    "ELMAH Information Leak",
+                    "40028",
+                    "release",
+                    "Pending",
+                    "0",
+                    "0",
+                    "0"
+                ]
+            },
+            {
+                "Plugin": [
+                    "Trace.axd Information Leak",
+                    "40029",
+                    "release",
+                    "Pending",
+                    "0",
+                    "0",
+                    "0"
+                ]
+            },
+            {
+                "Plugin": [
+                    ".htaccess Information Leak",
+                    "40032",
+                    "release",
+                    "Pending",
+                    "0",
+                    "0",
+                    "0"
+                ]
+            },
+            {
+                "Plugin": [
+                    ".env Information Leak",
+                    "40034",
+                    "release",
+                    "Pending",
+                    "0",
+                    "0",
+                    "0"
+                ]
+            },
+            {
+                "Plugin": [
+                    "Hidden File Finder",
+                    "40035",
+                    "release",
+                    "Pending",
+                    "0",
+                    "0",
+                    "0"
+                ]
+            },
+            {
+                "Plugin": [
+                    "Spring Actuator Information Leak",
+                    "40042",
+                    "release",
+                    "Pending",
+                    "0",
+                    "0",
+                    "0"
+                ]
+            },
+            {
+                "Plugin": [
+                    "XSLT Injection",
+                    "90017",
+                    "release",
+                    "Pending",
+                    "0",
+                    "0",
+                    "0"
+                ]
+            },
+            {
+                "Plugin": [
+                    "GET for POST",
+                    "10058",
+                    "release",
+                    "Pending",
+                    "0",
+                    "0",
+                    "0"
+                ]
+            },
+            {
+                "Plugin": [
+                    "User Agent Fuzzer",
+                    "10104",
+                    "release",
+                    "Pending",
+                    "0",
+                    "0",
+                    "0"
+                ]
+            },
+            {
+                "Plugin": [
+                    "Script Active Scan Rules",
+                    "50000",
+                    "release",
+                    "Pending",
+                    "0",
+                    "0",
+                    "0"
+                ]
+            },
+            {
+                "Plugin": [
+                    "SOAP Action Spoofing",
+                    "90026",
+                    "beta",
+                    "Pending",
+                    "0",
+                    "0",
+                    "0"
+                ]
+            },
+            {
+                "Plugin": [
+                    "SOAP XML Injection",
+                    "90029",
+                    "beta",
+                    "Pending",
+                    "0",
+                    "0",
+                    "0"
+                ]
+            }
+        ]
+    }
+}

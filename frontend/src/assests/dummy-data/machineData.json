@@ -1,0 +1,12 @@
+[
+    {"name": "Machine A", "id": "1", "last used": "2024-11-30"},
+    {"name": "Machine B", "id": "2", "last used": "2024-11-29"},
+    {"name": "Machine C", "id": "3", "last used": "2024-11-28"},
+    {"name": "Machine D", "id": "4", "last used": "2024-11-27"},
+    {"name": "Machine E", "id": "5", "last used": "2024-11-26"},
+    {"name": "Machine F", "id": "6", "last used": "2024-11-25"},
+    {"name": "Machine G", "id": "7", "last used": "2024-11-24"},
+    {"name": "Machine H", "id": "8", "last used": "2024-11-23"},
+    {"name": "Machine I", "id": "9", "last used": "2024-11-22"},
+    {"name": "Machine J", "id": "10", "last used": "2024-11-21"}
+]

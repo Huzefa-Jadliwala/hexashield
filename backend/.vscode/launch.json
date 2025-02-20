@@ -1,0 +1,114 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run Agent",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/agent/main.py",
+            "console": "integratedTerminal",
+            "args": [
+                "http://localhost:5001/c2/api/v1",
+                "http://localhost:5003"
+            ],
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "name": "Run Agent App",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/agent/agent_ui_app.py",
+            "console": "integratedTerminal",
+            "args": [
+                "http://localhost:5001/c2/api/v1",
+                "http://localhost:5003"
+            ],
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "name": "Run ChatGPT Shell",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/cybersecurity_shell.py",
+            "console": "integratedTerminal",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "name": "Run Grok Shell",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/grok_shell.py",
+            "console": "integratedTerminal",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "name": "Run Web Server with Hot Reload",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "uvicorn",
+            "args": [
+                "web_server.app:app",
+                "--host",
+                "localhost",
+                "--port",
+                "5002",
+                "--reload"
+            ],
+            "console": "integratedTerminal",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "name": "Run C2 Server (FastAPI & WebSocket) with Hot Reload",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "uvicorn",
+            "args": [
+                "c2_server.app:sio_app",
+                "--host",
+                "localhost",
+                "--port",
+                "5001",
+                "--reload"
+            ],
+            "console": "integratedTerminal",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "name": "Run Socket.IO Server with Hot Reload",
+            "type": "python",
+            "request": "launch",
+            "module": "uvicorn",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "envFile": "${workspaceFolder}/.env",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "args": [
+                "c2_server.c2_socket_server:sio_app",
+                "--host",
+                "localhost",
+                "--port",
+                "5003",
+                "--reload"
+            ]
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Run All Servers (Hot Reload)",
+            "configurations": [
+                "Run Web Server with Hot Reload",
+                "Run C2 Server (FastAPI & WebSocket) with Hot Reload"
+            ]
+        },
+        {
+            "name": "Run Agent with Delay",
+            "configurations": [
+                "Run Web Server with Hot Reload",
+                "Run C2 Server (FastAPI & WebSocket) with Hot Reload",
+                "Run Agent"
+            ]
+        }
+    ]
+}

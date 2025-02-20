@@ -1,0 +1,51 @@
+{
+    "cve_id": "CVE-2024-54321",
+    "description": "Kernel vulnerability leading to privilege escalation.",
+    "severity": "CRITICAL",
+    "attack_vector": "LOCAL",
+    "impact": {
+        "confidentiality": "HIGH",
+        "integrity": "HIGH",
+        "availability": "HIGH"
+    },
+    "status": "Unpatched",
+    "affected_packages": [
+        "linux-kernel"
+    ],
+    "commands": [
+        {
+            "description": "Identify the current kernel version.",
+            "command": "uname -r"
+        },
+        {
+            "description": "Check for vulnerable kernel features.",
+            "command": "cat /proc/config.gz | gunzip | grep CONFIG_FEATURE"
+        },
+        {
+            "description": "Exploit the vulnerability to escalate privileges.",
+            "command": "./exploit -t /proc/kcore"
+        },
+        {
+            "description": "Verify privilege escalation by checking the current user.",
+            "command": "whoami"
+        }
+    ],
+    "remediation": [
+        {
+            "description": "Upgrade the Linux kernel to version 6.5.3 or higher using the package manager.",
+            "command": "sudo apt update && sudo apt install --only-upgrade linux-image"
+        },
+        {
+            "description": "Reboot the system to apply the kernel upgrade.",
+            "command": "sudo reboot"
+        },
+        {
+            "description": "Disable unneeded kernel modules to reduce attack surface.",
+            "command": "echo 'blacklist <module_name>' >> /etc/modprobe.d/blacklist.conf"
+        },
+        {
+            "description": "Harden kernel configurations to prevent privilege escalation.",
+            "command": "sysctl -w kernel.unprivileged_bpf_disabled=1"
+        }
+    ]
+}

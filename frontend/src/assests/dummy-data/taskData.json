@@ -1,0 +1,1650 @@
+[
+    {
+        "name": "Execute SQL injection testcase",
+        "status": "passed",
+        "started": "2024-11-30 10:00",
+        "ended": "2024-11-30 10:10",
+        "executedtime": "10 mins",
+        "commands": [
+            {
+                "command": "SELECT * FROM users WHERE username='admin' AND password='password123';",
+                "output": "Query executed successfully. Retrieved 1 row."
+            },
+            {
+                "command": "SELECT * FROM users WHERE username='admin' --';",
+                "output": "Query executed successfully. Retrieved 1 row."
+            },
+            {
+                "command": "SELECT * FROM users WHERE username='' OR 1=1 --';",
+                "output": "Query executed successfully. Retrieved all rows."
+            },
+            {
+                "command": "SELECT username, password FROM users WHERE id=1;",
+                "output": "Query executed successfully. Retrieved username and password for ID 1."
+            },
+            {
+                "command": "INSERT INTO logs (action, timestamp) VALUES ('test', NOW());",
+                "output": "Log entry added successfully."
+            },
+            {
+                "command": "DROP TABLE IF EXISTS temp;",
+                "output": "Temporary table dropped successfully."
+            },
+            {
+                "command": "SELECT COUNT(*) FROM users;",
+                "output": "Query executed successfully. Count retrieved: 50."
+            },
+            {
+                "command": "UPDATE users SET last_login=NOW() WHERE id=1;",
+                "output": "User last login time updated successfully."
+            },
+            {
+                "command": "SELECT * FROM users WHERE username='nonexistent' AND password='nopass';",
+                "output": "Query executed successfully. No rows retrieved."
+            },
+            {
+                "command": "SELECT database();",
+                "output": "Query executed successfully. Current database: 'testdb'."
+            },
+            {
+                "command": "SELECT * FROM users WHERE username='admin' AND password='password123';",
+                "output": "Query executed successfully. Retrieved 1 row."
+            },
+            {
+                "command": "SELECT * FROM users WHERE username='admin' --';",
+                "output": "Query executed successfully. Retrieved 1 row."
+            },
+            {
+                "command": "SELECT * FROM users WHERE username='' OR 1=1 --';",
+                "output": "Query executed successfully. Retrieved all rows."
+            },
+            {
+                "command": "SELECT username, password FROM users WHERE id=1;",
+                "output": "Query executed successfully. Retrieved username and password for ID 1."
+            },
+            {
+                "command": "INSERT INTO logs (action, timestamp) VALUES ('test', NOW());",
+                "output": "Log entry added successfully."
+            },
+            {
+                "command": "DROP TABLE IF EXISTS temp;",
+                "output": "Temporary table dropped successfully."
+            },
+            {
+                "command": "SELECT COUNT(*) FROM users;",
+                "output": "Query executed successfully. Count retrieved: 50."
+            },
+            {
+                "command": "UPDATE users SET last_login=NOW() WHERE id=1;",
+                "output": "User last login time updated successfully."
+            },
+            {
+                "command": "SELECT * FROM users WHERE username='nonexistent' AND password='nopass';",
+                "output": "Query executed successfully. No rows retrieved."
+            },
+            {
+                "command": "SELECT database();",
+                "output": "Query executed successfully. Current database: 'testdb'."
+            },
+            {
+                "command": "SELECT * FROM users WHERE username='admin' AND password='password123';",
+                "output": "Query executed successfully. Retrieved 1 row."
+            },
+            {
+                "command": "SELECT * FROM users WHERE username='admin' --';",
+                "output": "Query executed successfully. Retrieved 1 row."
+            },
+            {
+                "command": "SELECT * FROM users WHERE username='' OR 1=1 --';",
+                "output": "Query executed successfully. Retrieved all rows."
+            },
+            {
+                "command": "SELECT username, password FROM users WHERE id=1;",
+                "output": "Query executed successfully. Retrieved username and password for ID 1."
+            },
+            {
+                "command": "INSERT INTO logs (action, timestamp) VALUES ('test', NOW());",
+                "output": "Log entry added successfully."
+            },
+            {
+                "command": "DROP TABLE IF EXISTS temp;",
+                "output": "Temporary table dropped successfully."
+            },
+            {
+                "command": "SELECT COUNT(*) FROM users;",
+                "output": "Query executed successfully. Count retrieved: 50."
+            },
+            {
+                "command": "UPDATE users SET last_login=NOW() WHERE id=1;",
+                "output": "User last login time updated successfully."
+            },
+            {
+                "command": "SELECT * FROM users WHERE username='nonexistent' AND password='nopass';",
+                "output": "Query executed successfully. No rows retrieved."
+            },
+            {
+                "command": "SELECT database();",
+                "output": "Query executed successfully. Current database: 'testdb'."
+            }
+        ]
+    },
+    {
+        "name": "Execute Cross-Site Scripting (XSS) testcase",
+        "status": "failed",
+        "started": "2024-11-30 10:15",
+        "ended": "2024-11-30 10:25",
+        "executedtime": "10 mins",
+        "commands": [
+            {
+                "command": "Load webpage with <script>alert('XSS')</script> payload.",
+                "output": "Alert displayed successfully, vulnerability confirmed."
+            },
+            {
+                "command": "Load webpage with <img src=x onerror=alert(1)> payload.",
+                "output": "Alert displayed successfully, vulnerability confirmed."
+            },
+            {
+                "command": "Submit form with <iframe src='javascript:alert(1)'></iframe>.",
+                "output": "Iframe executed, vulnerability confirmed."
+            },
+            {
+                "command": "Insert <marquee onstart=alert(1)>Test</marquee> in input field.",
+                "output": "Alert displayed successfully, vulnerability confirmed."
+            },
+            {
+                "command": "Check sanitization for <a href='javascript:alert(1)'>link</a>.",
+                "output": "JavaScript executed, vulnerability confirmed."
+            },
+            {
+                "command": "Attempt execution with &lt;script&gt;alert('XSS')&lt;/script&gt;.",
+                "output": "Sanitization successful, no vulnerability."
+            },
+            {
+                "command": "Enter payload: '<svg/onload=alert(1)>'",
+                "output": "Alert displayed successfully, vulnerability confirmed."
+            },
+            {
+                "command": "Inspect cookies for secure flag.",
+                "output": "Cookies marked as secure."
+            },
+            {
+                "command": "Submit payload in URL parameters.",
+                "output": "Payload executed, vulnerability confirmed."
+            },
+            {
+                "command": "Inspect HTML source for inserted payload.",
+                "output": "Payload present, vulnerability confirmed."
+            }
+        ]
+    },
+    {
+        "name": "Execute Directory Traversal testcase",
+        "status": "passed",
+        "started": "2024-11-30 10:30",
+        "ended": "2024-11-30 10:40",
+        "executedtime": "10 mins",
+        "commands": [
+            {
+                "command": "Access URL: /../etc/passwd.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Access URL: /../../../../windows/system32/drivers/etc/hosts.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Test encoded payload: %2e%2e%2f%2e%2e%2fetc/passwd.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Submit payload in file parameter: ../../etc/shadow.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Inspect response headers for path sanitization.",
+                "output": "Path sanitization successful."
+            },
+            {
+                "command": "Check for traversal in POST body: ../../var/log.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Attempt bypass using symbolic link.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Submit traversal payload in cookies.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Inject traversal payload in request headers.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Check logs for traversal attempts.",
+                "output": "Logs indicate blocked attempts."
+            }
+        ]
+    },
+    {
+        "name": "Execute Buffer Overflow testcase",
+        "status": "failed",
+        "started": "2024-11-30 10:45",
+        "ended": "2024-11-30 11:00",
+        "executedtime": "15 mins",
+        "commands": [
+            {
+                "command": "Submit 10,000 'A' characters in input field.",
+                "output": "Application crashed. Vulnerability confirmed."
+            },
+            {
+                "command": "Submit crafted payload with return address overwrite.",
+                "output": "Payload executed. Arbitrary code run."
+            },
+            {
+                "command": "Inspect stack for overflow.",
+                "output": "Overflow detected."
+            },
+            {
+                "command": "Check logs for segmentation faults.",
+                "output": "Segmentation fault logged."
+            },
+            {
+                "command": "Submit payload in GET parameters.",
+                "output": "Application crashed. Vulnerability confirmed."
+            },
+            {
+                "command": "Inspect memory for corrupted data.",
+                "output": "Memory corruption confirmed."
+            },
+            {
+                "command": "Submit payload in HTTP headers.",
+                "output": "Application crashed. Vulnerability confirmed."
+            },
+            {
+                "command": "Attempt to bypass using safe input.",
+                "output": "Application handled input safely."
+            },
+            {
+                "command": "Test response to unexpected data length.",
+                "output": "Application crashed. Vulnerability confirmed."
+            },
+            {
+                "command": "Inspect binary for memory protection.",
+                "output": "No memory protection found."
+            }
+        ]
+    },
+    {
+        "name": "Execute SQL injection testcase",
+        "status": "passed",
+        "started": "2024-11-30 10:00",
+        "ended": "2024-11-30 10:10",
+        "executedtime": "10 mins",
+        "commands": [
+            {
+                "command": "SELECT * FROM users WHERE username='admin' AND password='password123';",
+                "output": "Query executed successfully. Retrieved 1 row."
+            },
+            {
+                "command": "SELECT * FROM users WHERE username='admin' --';",
+                "output": "Query executed successfully. Retrieved 1 row."
+            },
+            {
+                "command": "SELECT * FROM users WHERE username='' OR 1=1 --';",
+                "output": "Query executed successfully. Retrieved all rows."
+            },
+            {
+                "command": "SELECT username, password FROM users WHERE id=1;",
+                "output": "Query executed successfully. Retrieved username and password for ID 1."
+            },
+            {
+                "command": "INSERT INTO logs (action, timestamp) VALUES ('test', NOW());",
+                "output": "Log entry added successfully."
+            },
+            {
+                "command": "DROP TABLE IF EXISTS temp;",
+                "output": "Temporary table dropped successfully."
+            },
+            {
+                "command": "SELECT COUNT(*) FROM users;",
+                "output": "Query executed successfully. Count retrieved: 50."
+            },
+            {
+                "command": "UPDATE users SET last_login=NOW() WHERE id=1;",
+                "output": "User last login time updated successfully."
+            },
+            {
+                "command": "SELECT * FROM users WHERE username='nonexistent' AND password='nopass';",
+                "output": "Query executed successfully. No rows retrieved."
+            },
+            {
+                "command": "SELECT database();",
+                "output": "Query executed successfully. Current database: 'testdb'."
+            }
+        ]
+    },
+    {
+        "name": "Execute Cross-Site Scripting (XSS) testcase",
+        "status": "failed",
+        "started": "2024-11-30 10:15",
+        "ended": "2024-11-30 10:25",
+        "executedtime": "10 mins",
+        "commands": [
+            {
+                "command": "Load webpage with <script>alert('XSS')</script> payload.",
+                "output": "Alert displayed successfully, vulnerability confirmed."
+            },
+            {
+                "command": "Load webpage with <img src=x onerror=alert(1)> payload.",
+                "output": "Alert displayed successfully, vulnerability confirmed."
+            },
+            {
+                "command": "Submit form with <iframe src='javascript:alert(1)'></iframe>.",
+                "output": "Iframe executed, vulnerability confirmed."
+            },
+            {
+                "command": "Insert <marquee onstart=alert(1)>Test</marquee> in input field.",
+                "output": "Alert displayed successfully, vulnerability confirmed."
+            },
+            {
+                "command": "Check sanitization for <a href='javascript:alert(1)'>link</a>.",
+                "output": "JavaScript executed, vulnerability confirmed."
+            },
+            {
+                "command": "Attempt execution with &lt;script&gt;alert('XSS')&lt;/script&gt;.",
+                "output": "Sanitization successful, no vulnerability."
+            },
+            {
+                "command": "Enter payload: '<svg/onload=alert(1)>'",
+                "output": "Alert displayed successfully, vulnerability confirmed."
+            },
+            {
+                "command": "Inspect cookies for secure flag.",
+                "output": "Cookies marked as secure."
+            },
+            {
+                "command": "Submit payload in URL parameters.",
+                "output": "Payload executed, vulnerability confirmed."
+            },
+            {
+                "command": "Inspect HTML source for inserted payload.",
+                "output": "Payload present, vulnerability confirmed."
+            }
+        ]
+    },
+    {
+        "name": "Execute Directory Traversal testcase",
+        "status": "passed",
+        "started": "2024-11-30 10:30",
+        "ended": "2024-11-30 10:40",
+        "executedtime": "10 mins",
+        "commands": [
+            {
+                "command": "Access URL: /../etc/passwd.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Access URL: /../../../../windows/system32/drivers/etc/hosts.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Test encoded payload: %2e%2e%2f%2e%2e%2fetc/passwd.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Submit payload in file parameter: ../../etc/shadow.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Inspect response headers for path sanitization.",
+                "output": "Path sanitization successful."
+            },
+            {
+                "command": "Check for traversal in POST body: ../../var/log.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Attempt bypass using symbolic link.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Submit traversal payload in cookies.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Inject traversal payload in request headers.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Check logs for traversal attempts.",
+                "output": "Logs indicate blocked attempts."
+            }
+        ]
+    },
+    {
+        "name": "Execute Buffer Overflow testcase",
+        "status": "failed",
+        "started": "2024-11-30 10:45",
+        "ended": "2024-11-30 11:00",
+        "executedtime": "15 mins",
+        "commands": [
+            {
+                "command": "Submit 10,000 'A' characters in input field.",
+                "output": "Application crashed. Vulnerability confirmed."
+            },
+            {
+                "command": "Submit crafted payload with return address overwrite.",
+                "output": "Payload executed. Arbitrary code run."
+            },
+            {
+                "command": "Inspect stack for overflow.",
+                "output": "Overflow detected."
+            },
+            {
+                "command": "Check logs for segmentation faults.",
+                "output": "Segmentation fault logged."
+            },
+            {
+                "command": "Submit payload in GET parameters.",
+                "output": "Application crashed. Vulnerability confirmed."
+            },
+            {
+                "command": "Inspect memory for corrupted data.",
+                "output": "Memory corruption confirmed."
+            },
+            {
+                "command": "Submit payload in HTTP headers.",
+                "output": "Application crashed. Vulnerability confirmed."
+            },
+            {
+                "command": "Attempt to bypass using safe input.",
+                "output": "Application handled input safely."
+            },
+            {
+                "command": "Test response to unexpected data length.",
+                "output": "Application crashed. Vulnerability confirmed."
+            },
+            {
+                "command": "Inspect binary for memory protection.",
+                "output": "No memory protection found."
+            }
+        ]
+    },
+    {
+        "name": "Execute SQL injection testcase",
+        "status": "passed",
+        "started": "2024-11-30 10:00",
+        "ended": "2024-11-30 10:10",
+        "executedtime": "10 mins",
+        "commands": [
+            {
+                "command": "SELECT * FROM users WHERE username='admin' AND password='password123';",
+                "output": "Query executed successfully. Retrieved 1 row."
+            },
+            {
+                "command": "SELECT * FROM users WHERE username='admin' --';",
+                "output": "Query executed successfully. Retrieved 1 row."
+            },
+            {
+                "command": "SELECT * FROM users WHERE username='' OR 1=1 --';",
+                "output": "Query executed successfully. Retrieved all rows."
+            },
+            {
+                "command": "SELECT username, password FROM users WHERE id=1;",
+                "output": "Query executed successfully. Retrieved username and password for ID 1."
+            },
+            {
+                "command": "INSERT INTO logs (action, timestamp) VALUES ('test', NOW());",
+                "output": "Log entry added successfully."
+            },
+            {
+                "command": "DROP TABLE IF EXISTS temp;",
+                "output": "Temporary table dropped successfully."
+            },
+            {
+                "command": "SELECT COUNT(*) FROM users;",
+                "output": "Query executed successfully. Count retrieved: 50."
+            },
+            {
+                "command": "UPDATE users SET last_login=NOW() WHERE id=1;",
+                "output": "User last login time updated successfully."
+            },
+            {
+                "command": "SELECT * FROM users WHERE username='nonexistent' AND password='nopass';",
+                "output": "Query executed successfully. No rows retrieved."
+            },
+            {
+                "command": "SELECT database();",
+                "output": "Query executed successfully. Current database: 'testdb'."
+            }
+        ]
+    },
+    {
+        "name": "Execute Cross-Site Scripting (XSS) testcase",
+        "status": "failed",
+        "started": "2024-11-30 10:15",
+        "ended": "2024-11-30 10:25",
+        "executedtime": "10 mins",
+        "commands": [
+            {
+                "command": "Load webpage with <script>alert('XSS')</script> payload.",
+                "output": "Alert displayed successfully, vulnerability confirmed."
+            },
+            {
+                "command": "Load webpage with <img src=x onerror=alert(1)> payload.",
+                "output": "Alert displayed successfully, vulnerability confirmed."
+            },
+            {
+                "command": "Submit form with <iframe src='javascript:alert(1)'></iframe>.",
+                "output": "Iframe executed, vulnerability confirmed."
+            },
+            {
+                "command": "Insert <marquee onstart=alert(1)>Test</marquee> in input field.",
+                "output": "Alert displayed successfully, vulnerability confirmed."
+            },
+            {
+                "command": "Check sanitization for <a href='javascript:alert(1)'>link</a>.",
+                "output": "JavaScript executed, vulnerability confirmed."
+            },
+            {
+                "command": "Attempt execution with &lt;script&gt;alert('XSS')&lt;/script&gt;.",
+                "output": "Sanitization successful, no vulnerability."
+            },
+            {
+                "command": "Enter payload: '<svg/onload=alert(1)>'",
+                "output": "Alert displayed successfully, vulnerability confirmed."
+            },
+            {
+                "command": "Inspect cookies for secure flag.",
+                "output": "Cookies marked as secure."
+            },
+            {
+                "command": "Submit payload in URL parameters.",
+                "output": "Payload executed, vulnerability confirmed."
+            },
+            {
+                "command": "Inspect HTML source for inserted payload.",
+                "output": "Payload present, vulnerability confirmed."
+            }
+        ]
+    },
+    {
+        "name": "Execute Directory Traversal testcase",
+        "status": "passed",
+        "started": "2024-11-30 10:30",
+        "ended": "2024-11-30 10:40",
+        "executedtime": "10 mins",
+        "commands": [
+            {
+                "command": "Access URL: /../etc/passwd.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Access URL: /../../../../windows/system32/drivers/etc/hosts.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Test encoded payload: %2e%2e%2f%2e%2e%2fetc/passwd.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Submit payload in file parameter: ../../etc/shadow.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Inspect response headers for path sanitization.",
+                "output": "Path sanitization successful."
+            },
+            {
+                "command": "Check for traversal in POST body: ../../var/log.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Attempt bypass using symbolic link.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Submit traversal payload in cookies.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Inject traversal payload in request headers.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Check logs for traversal attempts.",
+                "output": "Logs indicate blocked attempts."
+            }
+        ]
+    },
+    {
+        "name": "Execute Buffer Overflow testcase",
+        "status": "failed",
+        "started": "2024-11-30 10:45",
+        "ended": "2024-11-30 11:00",
+        "executedtime": "15 mins",
+        "commands": [
+            {
+                "command": "Submit 10,000 'A' characters in input field.",
+                "output": "Application crashed. Vulnerability confirmed."
+            },
+            {
+                "command": "Submit crafted payload with return address overwrite.",
+                "output": "Payload executed. Arbitrary code run."
+            },
+            {
+                "command": "Inspect stack for overflow.",
+                "output": "Overflow detected."
+            },
+            {
+                "command": "Check logs for segmentation faults.",
+                "output": "Segmentation fault logged."
+            },
+            {
+                "command": "Submit payload in GET parameters.",
+                "output": "Application crashed. Vulnerability confirmed."
+            },
+            {
+                "command": "Inspect memory for corrupted data.",
+                "output": "Memory corruption confirmed."
+            },
+            {
+                "command": "Submit payload in HTTP headers.",
+                "output": "Application crashed. Vulnerability confirmed."
+            },
+            {
+                "command": "Attempt to bypass using safe input.",
+                "output": "Application handled input safely."
+            },
+            {
+                "command": "Test response to unexpected data length.",
+                "output": "Application crashed. Vulnerability confirmed."
+            },
+            {
+                "command": "Inspect binary for memory protection.",
+                "output": "No memory protection found."
+            }
+        ]
+    },
+    {
+        "name": "Execute SQL injection testcase",
+        "status": "passed",
+        "started": "2024-11-30 10:00",
+        "ended": "2024-11-30 10:10",
+        "executedtime": "10 mins",
+        "commands": [
+            {
+                "command": "SELECT * FROM users WHERE username='admin' AND password='password123';",
+                "output": "Query executed successfully. Retrieved 1 row."
+            },
+            {
+                "command": "SELECT * FROM users WHERE username='admin' --';",
+                "output": "Query executed successfully. Retrieved 1 row."
+            },
+            {
+                "command": "SELECT * FROM users WHERE username='' OR 1=1 --';",
+                "output": "Query executed successfully. Retrieved all rows."
+            },
+            {
+                "command": "SELECT username, password FROM users WHERE id=1;",
+                "output": "Query executed successfully. Retrieved username and password for ID 1."
+            },
+            {
+                "command": "INSERT INTO logs (action, timestamp) VALUES ('test', NOW());",
+                "output": "Log entry added successfully."
+            },
+            {
+                "command": "DROP TABLE IF EXISTS temp;",
+                "output": "Temporary table dropped successfully."
+            },
+            {
+                "command": "SELECT COUNT(*) FROM users;",
+                "output": "Query executed successfully. Count retrieved: 50."
+            },
+            {
+                "command": "UPDATE users SET last_login=NOW() WHERE id=1;",
+                "output": "User last login time updated successfully."
+            },
+            {
+                "command": "SELECT * FROM users WHERE username='nonexistent' AND password='nopass';",
+                "output": "Query executed successfully. No rows retrieved."
+            },
+            {
+                "command": "SELECT database();",
+                "output": "Query executed successfully. Current database: 'testdb'."
+            }
+        ]
+    },
+    {
+        "name": "Execute Cross-Site Scripting (XSS) testcase",
+        "status": "failed",
+        "started": "2024-11-30 10:15",
+        "ended": "2024-11-30 10:25",
+        "executedtime": "10 mins",
+        "commands": [
+            {
+                "command": "Load webpage with <script>alert('XSS')</script> payload.",
+                "output": "Alert displayed successfully, vulnerability confirmed."
+            },
+            {
+                "command": "Load webpage with <img src=x onerror=alert(1)> payload.",
+                "output": "Alert displayed successfully, vulnerability confirmed."
+            },
+            {
+                "command": "Submit form with <iframe src='javascript:alert(1)'></iframe>.",
+                "output": "Iframe executed, vulnerability confirmed."
+            },
+            {
+                "command": "Insert <marquee onstart=alert(1)>Test</marquee> in input field.",
+                "output": "Alert displayed successfully, vulnerability confirmed."
+            },
+            {
+                "command": "Check sanitization for <a href='javascript:alert(1)'>link</a>.",
+                "output": "JavaScript executed, vulnerability confirmed."
+            },
+            {
+                "command": "Attempt execution with &lt;script&gt;alert('XSS')&lt;/script&gt;.",
+                "output": "Sanitization successful, no vulnerability."
+            },
+            {
+                "command": "Enter payload: '<svg/onload=alert(1)>'",
+                "output": "Alert displayed successfully, vulnerability confirmed."
+            },
+            {
+                "command": "Inspect cookies for secure flag.",
+                "output": "Cookies marked as secure."
+            },
+            {
+                "command": "Submit payload in URL parameters.",
+                "output": "Payload executed, vulnerability confirmed."
+            },
+            {
+                "command": "Inspect HTML source for inserted payload.",
+                "output": "Payload present, vulnerability confirmed."
+            }
+        ]
+    },
+    {
+        "name": "Execute Directory Traversal testcase",
+        "status": "passed",
+        "started": "2024-11-30 10:30",
+        "ended": "2024-11-30 10:40",
+        "executedtime": "10 mins",
+        "commands": [
+            {
+                "command": "Access URL: /../etc/passwd.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Access URL: /../../../../windows/system32/drivers/etc/hosts.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Test encoded payload: %2e%2e%2f%2e%2e%2fetc/passwd.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Submit payload in file parameter: ../../etc/shadow.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Inspect response headers for path sanitization.",
+                "output": "Path sanitization successful."
+            },
+            {
+                "command": "Check for traversal in POST body: ../../var/log.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Attempt bypass using symbolic link.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Submit traversal payload in cookies.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Inject traversal payload in request headers.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Check logs for traversal attempts.",
+                "output": "Logs indicate blocked attempts."
+            }
+        ]
+    },
+    {
+        "name": "Execute Buffer Overflow testcase",
+        "status": "failed",
+        "started": "2024-11-30 10:45",
+        "ended": "2024-11-30 11:00",
+        "executedtime": "15 mins",
+        "commands": [
+            {
+                "command": "Submit 10,000 'A' characters in input field.",
+                "output": "Application crashed. Vulnerability confirmed."
+            },
+            {
+                "command": "Submit crafted payload with return address overwrite.",
+                "output": "Payload executed. Arbitrary code run."
+            },
+            {
+                "command": "Inspect stack for overflow.",
+                "output": "Overflow detected."
+            },
+            {
+                "command": "Check logs for segmentation faults.",
+                "output": "Segmentation fault logged."
+            },
+            {
+                "command": "Submit payload in GET parameters.",
+                "output": "Application crashed. Vulnerability confirmed."
+            },
+            {
+                "command": "Inspect memory for corrupted data.",
+                "output": "Memory corruption confirmed."
+            },
+            {
+                "command": "Submit payload in HTTP headers.",
+                "output": "Application crashed. Vulnerability confirmed."
+            },
+            {
+                "command": "Attempt to bypass using safe input.",
+                "output": "Application handled input safely."
+            },
+            {
+                "command": "Test response to unexpected data length.",
+                "output": "Application crashed. Vulnerability confirmed."
+            },
+            {
+                "command": "Inspect binary for memory protection.",
+                "output": "No memory protection found."
+            }
+        ]
+    },
+    {
+        "name": "Execute SQL injection testcase",
+        "status": "passed",
+        "started": "2024-11-30 10:00",
+        "ended": "2024-11-30 10:10",
+        "executedtime": "10 mins",
+        "commands": [
+            {
+                "command": "SELECT * FROM users WHERE username='admin' AND password='password123';",
+                "output": "Query executed successfully. Retrieved 1 row."
+            },
+            {
+                "command": "SELECT * FROM users WHERE username='admin' --';",
+                "output": "Query executed successfully. Retrieved 1 row."
+            },
+            {
+                "command": "SELECT * FROM users WHERE username='' OR 1=1 --';",
+                "output": "Query executed successfully. Retrieved all rows."
+            },
+            {
+                "command": "SELECT username, password FROM users WHERE id=1;",
+                "output": "Query executed successfully. Retrieved username and password for ID 1."
+            },
+            {
+                "command": "INSERT INTO logs (action, timestamp) VALUES ('test', NOW());",
+                "output": "Log entry added successfully."
+            },
+            {
+                "command": "DROP TABLE IF EXISTS temp;",
+                "output": "Temporary table dropped successfully."
+            },
+            {
+                "command": "SELECT COUNT(*) FROM users;",
+                "output": "Query executed successfully. Count retrieved: 50."
+            },
+            {
+                "command": "UPDATE users SET last_login=NOW() WHERE id=1;",
+                "output": "User last login time updated successfully."
+            },
+            {
+                "command": "SELECT * FROM users WHERE username='nonexistent' AND password='nopass';",
+                "output": "Query executed successfully. No rows retrieved."
+            },
+            {
+                "command": "SELECT database();",
+                "output": "Query executed successfully. Current database: 'testdb'."
+            }
+        ]
+    },
+    {
+        "name": "Execute Cross-Site Scripting (XSS) testcase",
+        "status": "failed",
+        "started": "2024-11-30 10:15",
+        "ended": "2024-11-30 10:25",
+        "executedtime": "10 mins",
+        "commands": [
+            {
+                "command": "Load webpage with <script>alert('XSS')</script> payload.",
+                "output": "Alert displayed successfully, vulnerability confirmed."
+            },
+            {
+                "command": "Load webpage with <img src=x onerror=alert(1)> payload.",
+                "output": "Alert displayed successfully, vulnerability confirmed."
+            },
+            {
+                "command": "Submit form with <iframe src='javascript:alert(1)'></iframe>.",
+                "output": "Iframe executed, vulnerability confirmed."
+            },
+            {
+                "command": "Insert <marquee onstart=alert(1)>Test</marquee> in input field.",
+                "output": "Alert displayed successfully, vulnerability confirmed."
+            },
+            {
+                "command": "Check sanitization for <a href='javascript:alert(1)'>link</a>.",
+                "output": "JavaScript executed, vulnerability confirmed."
+            },
+            {
+                "command": "Attempt execution with &lt;script&gt;alert('XSS')&lt;/script&gt;.",
+                "output": "Sanitization successful, no vulnerability."
+            },
+            {
+                "command": "Enter payload: '<svg/onload=alert(1)>'",
+                "output": "Alert displayed successfully, vulnerability confirmed."
+            },
+            {
+                "command": "Inspect cookies for secure flag.",
+                "output": "Cookies marked as secure."
+            },
+            {
+                "command": "Submit payload in URL parameters.",
+                "output": "Payload executed, vulnerability confirmed."
+            },
+            {
+                "command": "Inspect HTML source for inserted payload.",
+                "output": "Payload present, vulnerability confirmed."
+            }
+        ]
+    },
+    {
+        "name": "Execute Directory Traversal testcase",
+        "status": "passed",
+        "started": "2024-11-30 10:30",
+        "ended": "2024-11-30 10:40",
+        "executedtime": "10 mins",
+        "commands": [
+            {
+                "command": "Access URL: /../etc/passwd.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Access URL: /../../../../windows/system32/drivers/etc/hosts.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Test encoded payload: %2e%2e%2f%2e%2e%2fetc/passwd.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Submit payload in file parameter: ../../etc/shadow.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Inspect response headers for path sanitization.",
+                "output": "Path sanitization successful."
+            },
+            {
+                "command": "Check for traversal in POST body: ../../var/log.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Attempt bypass using symbolic link.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Submit traversal payload in cookies.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Inject traversal payload in request headers.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Check logs for traversal attempts.",
+                "output": "Logs indicate blocked attempts."
+            }
+        ]
+    },
+    {
+        "name": "Execute Buffer Overflow testcase",
+        "status": "failed",
+        "started": "2024-11-30 10:45",
+        "ended": "2024-11-30 11:00",
+        "executedtime": "15 mins",
+        "commands": [
+            {
+                "command": "Submit 10,000 'A' characters in input field.",
+                "output": "Application crashed. Vulnerability confirmed."
+            },
+            {
+                "command": "Submit crafted payload with return address overwrite.",
+                "output": "Payload executed. Arbitrary code run."
+            },
+            {
+                "command": "Inspect stack for overflow.",
+                "output": "Overflow detected."
+            },
+            {
+                "command": "Check logs for segmentation faults.",
+                "output": "Segmentation fault logged."
+            },
+            {
+                "command": "Submit payload in GET parameters.",
+                "output": "Application crashed. Vulnerability confirmed."
+            },
+            {
+                "command": "Inspect memory for corrupted data.",
+                "output": "Memory corruption confirmed."
+            },
+            {
+                "command": "Submit payload in HTTP headers.",
+                "output": "Application crashed. Vulnerability confirmed."
+            },
+            {
+                "command": "Attempt to bypass using safe input.",
+                "output": "Application handled input safely."
+            },
+            {
+                "command": "Test response to unexpected data length.",
+                "output": "Application crashed. Vulnerability confirmed."
+            },
+            {
+                "command": "Inspect binary for memory protection.",
+                "output": "No memory protection found."
+            }
+        ]
+    },
+    {
+        "name": "Execute SQL injection testcase",
+        "status": "passed",
+        "started": "2024-11-30 10:00",
+        "ended": "2024-11-30 10:10",
+        "executedtime": "10 mins",
+        "commands": [
+            {
+                "command": "SELECT * FROM users WHERE username='admin' AND password='password123';",
+                "output": "Query executed successfully. Retrieved 1 row."
+            },
+            {
+                "command": "SELECT * FROM users WHERE username='admin' --';",
+                "output": "Query executed successfully. Retrieved 1 row."
+            },
+            {
+                "command": "SELECT * FROM users WHERE username='' OR 1=1 --';",
+                "output": "Query executed successfully. Retrieved all rows."
+            },
+            {
+                "command": "SELECT username, password FROM users WHERE id=1;",
+                "output": "Query executed successfully. Retrieved username and password for ID 1."
+            },
+            {
+                "command": "INSERT INTO logs (action, timestamp) VALUES ('test', NOW());",
+                "output": "Log entry added successfully."
+            },
+            {
+                "command": "DROP TABLE IF EXISTS temp;",
+                "output": "Temporary table dropped successfully."
+            },
+            {
+                "command": "SELECT COUNT(*) FROM users;",
+                "output": "Query executed successfully. Count retrieved: 50."
+            },
+            {
+                "command": "UPDATE users SET last_login=NOW() WHERE id=1;",
+                "output": "User last login time updated successfully."
+            },
+            {
+                "command": "SELECT * FROM users WHERE username='nonexistent' AND password='nopass';",
+                "output": "Query executed successfully. No rows retrieved."
+            },
+            {
+                "command": "SELECT database();",
+                "output": "Query executed successfully. Current database: 'testdb'."
+            }
+        ]
+    },
+    {
+        "name": "Execute Cross-Site Scripting (XSS) testcase",
+        "status": "failed",
+        "started": "2024-11-30 10:15",
+        "ended": "2024-11-30 10:25",
+        "executedtime": "10 mins",
+        "commands": [
+            {
+                "command": "Load webpage with <script>alert('XSS')</script> payload.",
+                "output": "Alert displayed successfully, vulnerability confirmed."
+            },
+            {
+                "command": "Load webpage with <img src=x onerror=alert(1)> payload.",
+                "output": "Alert displayed successfully, vulnerability confirmed."
+            },
+            {
+                "command": "Submit form with <iframe src='javascript:alert(1)'></iframe>.",
+                "output": "Iframe executed, vulnerability confirmed."
+            },
+            {
+                "command": "Insert <marquee onstart=alert(1)>Test</marquee> in input field.",
+                "output": "Alert displayed successfully, vulnerability confirmed."
+            },
+            {
+                "command": "Check sanitization for <a href='javascript:alert(1)'>link</a>.",
+                "output": "JavaScript executed, vulnerability confirmed."
+            },
+            {
+                "command": "Attempt execution with &lt;script&gt;alert('XSS')&lt;/script&gt;.",
+                "output": "Sanitization successful, no vulnerability."
+            },
+            {
+                "command": "Enter payload: '<svg/onload=alert(1)>'",
+                "output": "Alert displayed successfully, vulnerability confirmed."
+            },
+            {
+                "command": "Inspect cookies for secure flag.",
+                "output": "Cookies marked as secure."
+            },
+            {
+                "command": "Submit payload in URL parameters.",
+                "output": "Payload executed, vulnerability confirmed."
+            },
+            {
+                "command": "Inspect HTML source for inserted payload.",
+                "output": "Payload present, vulnerability confirmed."
+            }
+        ]
+    },
+    {
+        "name": "Execute Directory Traversal testcase",
+        "status": "passed",
+        "started": "2024-11-30 10:30",
+        "ended": "2024-11-30 10:40",
+        "executedtime": "10 mins",
+        "commands": [
+            {
+                "command": "Access URL: /../etc/passwd.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Access URL: /../../../../windows/system32/drivers/etc/hosts.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Test encoded payload: %2e%2e%2f%2e%2e%2fetc/passwd.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Submit payload in file parameter: ../../etc/shadow.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Inspect response headers for path sanitization.",
+                "output": "Path sanitization successful."
+            },
+            {
+                "command": "Check for traversal in POST body: ../../var/log.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Attempt bypass using symbolic link.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Submit traversal payload in cookies.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Inject traversal payload in request headers.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Check logs for traversal attempts.",
+                "output": "Logs indicate blocked attempts."
+            }
+        ]
+    },
+    {
+        "name": "Execute Buffer Overflow testcase",
+        "status": "failed",
+        "started": "2024-11-30 10:45",
+        "ended": "2024-11-30 11:00",
+        "executedtime": "15 mins",
+        "commands": [
+            {
+                "command": "Submit 10,000 'A' characters in input field.",
+                "output": "Application crashed. Vulnerability confirmed."
+            },
+            {
+                "command": "Submit crafted payload with return address overwrite.",
+                "output": "Payload executed. Arbitrary code run."
+            },
+            {
+                "command": "Inspect stack for overflow.",
+                "output": "Overflow detected."
+            },
+            {
+                "command": "Check logs for segmentation faults.",
+                "output": "Segmentation fault logged."
+            },
+            {
+                "command": "Submit payload in GET parameters.",
+                "output": "Application crashed. Vulnerability confirmed."
+            },
+            {
+                "command": "Inspect memory for corrupted data.",
+                "output": "Memory corruption confirmed."
+            },
+            {
+                "command": "Submit payload in HTTP headers.",
+                "output": "Application crashed. Vulnerability confirmed."
+            },
+            {
+                "command": "Attempt to bypass using safe input.",
+                "output": "Application handled input safely."
+            },
+            {
+                "command": "Test response to unexpected data length.",
+                "output": "Application crashed. Vulnerability confirmed."
+            },
+            {
+                "command": "Inspect binary for memory protection.",
+                "output": "No memory protection found."
+            }
+        ]
+    },
+    {
+        "name": "Execute SQL injection testcase",
+        "status": "passed",
+        "started": "2024-11-30 10:00",
+        "ended": "2024-11-30 10:10",
+        "executedtime": "10 mins",
+        "commands": [
+            {
+                "command": "SELECT * FROM users WHERE username='admin' AND password='password123';",
+                "output": "Query executed successfully. Retrieved 1 row."
+            },
+            {
+                "command": "SELECT * FROM users WHERE username='admin' --';",
+                "output": "Query executed successfully. Retrieved 1 row."
+            },
+            {
+                "command": "SELECT * FROM users WHERE username='' OR 1=1 --';",
+                "output": "Query executed successfully. Retrieved all rows."
+            },
+            {
+                "command": "SELECT username, password FROM users WHERE id=1;",
+                "output": "Query executed successfully. Retrieved username and password for ID 1."
+            },
+            {
+                "command": "INSERT INTO logs (action, timestamp) VALUES ('test', NOW());",
+                "output": "Log entry added successfully."
+            },
+            {
+                "command": "DROP TABLE IF EXISTS temp;",
+                "output": "Temporary table dropped successfully."
+            },
+            {
+                "command": "SELECT COUNT(*) FROM users;",
+                "output": "Query executed successfully. Count retrieved: 50."
+            },
+            {
+                "command": "UPDATE users SET last_login=NOW() WHERE id=1;",
+                "output": "User last login time updated successfully."
+            },
+            {
+                "command": "SELECT * FROM users WHERE username='nonexistent' AND password='nopass';",
+                "output": "Query executed successfully. No rows retrieved."
+            },
+            {
+                "command": "SELECT database();",
+                "output": "Query executed successfully. Current database: 'testdb'."
+            }
+        ]
+    },
+    {
+        "name": "Execute Cross-Site Scripting (XSS) testcase",
+        "status": "failed",
+        "started": "2024-11-30 10:15",
+        "ended": "2024-11-30 10:25",
+        "executedtime": "10 mins",
+        "commands": [
+            {
+                "command": "Load webpage with <script>alert('XSS')</script> payload.",
+                "output": "Alert displayed successfully, vulnerability confirmed."
+            },
+            {
+                "command": "Load webpage with <img src=x onerror=alert(1)> payload.",
+                "output": "Alert displayed successfully, vulnerability confirmed."
+            },
+            {
+                "command": "Submit form with <iframe src='javascript:alert(1)'></iframe>.",
+                "output": "Iframe executed, vulnerability confirmed."
+            },
+            {
+                "command": "Insert <marquee onstart=alert(1)>Test</marquee> in input field.",
+                "output": "Alert displayed successfully, vulnerability confirmed."
+            },
+            {
+                "command": "Check sanitization for <a href='javascript:alert(1)'>link</a>.",
+                "output": "JavaScript executed, vulnerability confirmed."
+            },
+            {
+                "command": "Attempt execution with &lt;script&gt;alert('XSS')&lt;/script&gt;.",
+                "output": "Sanitization successful, no vulnerability."
+            },
+            {
+                "command": "Enter payload: '<svg/onload=alert(1)>'",
+                "output": "Alert displayed successfully, vulnerability confirmed."
+            },
+            {
+                "command": "Inspect cookies for secure flag.",
+                "output": "Cookies marked as secure."
+            },
+            {
+                "command": "Submit payload in URL parameters.",
+                "output": "Payload executed, vulnerability confirmed."
+            },
+            {
+                "command": "Inspect HTML source for inserted payload.",
+                "output": "Payload present, vulnerability confirmed."
+            }
+        ]
+    },
+    {
+        "name": "Execute Directory Traversal testcase",
+        "status": "passed",
+        "started": "2024-11-30 10:30",
+        "ended": "2024-11-30 10:40",
+        "executedtime": "10 mins",
+        "commands": [
+            {
+                "command": "Access URL: /../etc/passwd.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Access URL: /../../../../windows/system32/drivers/etc/hosts.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Test encoded payload: %2e%2e%2f%2e%2e%2fetc/passwd.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Submit payload in file parameter: ../../etc/shadow.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Inspect response headers for path sanitization.",
+                "output": "Path sanitization successful."
+            },
+            {
+                "command": "Check for traversal in POST body: ../../var/log.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Attempt bypass using symbolic link.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Submit traversal payload in cookies.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Inject traversal payload in request headers.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Check logs for traversal attempts.",
+                "output": "Logs indicate blocked attempts."
+            }
+        ]
+    },
+    {
+        "name": "Execute Buffer Overflow testcase",
+        "status": "failed",
+        "started": "2024-11-30 10:45",
+        "ended": "2024-11-30 11:00",
+        "executedtime": "15 mins",
+        "commands": [
+            {
+                "command": "Submit 10,000 'A' characters in input field.",
+                "output": "Application crashed. Vulnerability confirmed."
+            },
+            {
+                "command": "Submit crafted payload with return address overwrite.",
+                "output": "Payload executed. Arbitrary code run."
+            },
+            {
+                "command": "Inspect stack for overflow.",
+                "output": "Overflow detected."
+            },
+            {
+                "command": "Check logs for segmentation faults.",
+                "output": "Segmentation fault logged."
+            },
+            {
+                "command": "Submit payload in GET parameters.",
+                "output": "Application crashed. Vulnerability confirmed."
+            },
+            {
+                "command": "Inspect memory for corrupted data.",
+                "output": "Memory corruption confirmed."
+            },
+            {
+                "command": "Submit payload in HTTP headers.",
+                "output": "Application crashed. Vulnerability confirmed."
+            },
+            {
+                "command": "Attempt to bypass using safe input.",
+                "output": "Application handled input safely."
+            },
+            {
+                "command": "Test response to unexpected data length.",
+                "output": "Application crashed. Vulnerability confirmed."
+            },
+            {
+                "command": "Inspect binary for memory protection.",
+                "output": "No memory protection found."
+            }
+        ]
+    },
+    {
+        "name": "Execute SQL injection testcase",
+        "status": "passed",
+        "started": "2024-11-30 10:00",
+        "ended": "2024-11-30 10:10",
+        "executedtime": "10 mins",
+        "commands": [
+            {
+                "command": "SELECT * FROM users WHERE username='admin' AND password='password123';",
+                "output": "Query executed successfully. Retrieved 1 row."
+            },
+            {
+                "command": "SELECT * FROM users WHERE username='admin' --';",
+                "output": "Query executed successfully. Retrieved 1 row."
+            },
+            {
+                "command": "SELECT * FROM users WHERE username='' OR 1=1 --';",
+                "output": "Query executed successfully. Retrieved all rows."
+            },
+            {
+                "command": "SELECT username, password FROM users WHERE id=1;",
+                "output": "Query executed successfully. Retrieved username and password for ID 1."
+            },
+            {
+                "command": "INSERT INTO logs (action, timestamp) VALUES ('test', NOW());",
+                "output": "Log entry added successfully."
+            },
+            {
+                "command": "DROP TABLE IF EXISTS temp;",
+                "output": "Temporary table dropped successfully."
+            },
+            {
+                "command": "SELECT COUNT(*) FROM users;",
+                "output": "Query executed successfully. Count retrieved: 50."
+            },
+            {
+                "command": "UPDATE users SET last_login=NOW() WHERE id=1;",
+                "output": "User last login time updated successfully."
+            },
+            {
+                "command": "SELECT * FROM users WHERE username='nonexistent' AND password='nopass';",
+                "output": "Query executed successfully. No rows retrieved."
+            },
+            {
+                "command": "SELECT database();",
+                "output": "Query executed successfully. Current database: 'testdb'."
+            }
+        ]
+    },
+    {
+        "name": "Execute Cross-Site Scripting (XSS) testcase",
+        "status": "failed",
+        "started": "2024-11-30 10:15",
+        "ended": "2024-11-30 10:25",
+        "executedtime": "10 mins",
+        "commands": [
+            {
+                "command": "Load webpage with <script>alert('XSS')</script> payload.",
+                "output": "Alert displayed successfully, vulnerability confirmed."
+            },
+            {
+                "command": "Load webpage with <img src=x onerror=alert(1)> payload.",
+                "output": "Alert displayed successfully, vulnerability confirmed."
+            },
+            {
+                "command": "Submit form with <iframe src='javascript:alert(1)'></iframe>.",
+                "output": "Iframe executed, vulnerability confirmed."
+            },
+            {
+                "command": "Insert <marquee onstart=alert(1)>Test</marquee> in input field.",
+                "output": "Alert displayed successfully, vulnerability confirmed."
+            },
+            {
+                "command": "Check sanitization for <a href='javascript:alert(1)'>link</a>.",
+                "output": "JavaScript executed, vulnerability confirmed."
+            },
+            {
+                "command": "Attempt execution with &lt;script&gt;alert('XSS')&lt;/script&gt;.",
+                "output": "Sanitization successful, no vulnerability."
+            },
+            {
+                "command": "Enter payload: '<svg/onload=alert(1)>'",
+                "output": "Alert displayed successfully, vulnerability confirmed."
+            },
+            {
+                "command": "Inspect cookies for secure flag.",
+                "output": "Cookies marked as secure."
+            },
+            {
+                "command": "Submit payload in URL parameters.",
+                "output": "Payload executed, vulnerability confirmed."
+            },
+            {
+                "command": "Inspect HTML source for inserted payload.",
+                "output": "Payload present, vulnerability confirmed."
+            }
+        ]
+    },
+    {
+        "name": "Execute Directory Traversal testcase",
+        "status": "passed",
+        "started": "2024-11-30 10:30",
+        "ended": "2024-11-30 10:40",
+        "executedtime": "10 mins",
+        "commands": [
+            {
+                "command": "Access URL: /../etc/passwd.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Access URL: /../../../../windows/system32/drivers/etc/hosts.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Test encoded payload: %2e%2e%2f%2e%2e%2fetc/passwd.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Submit payload in file parameter: ../../etc/shadow.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Inspect response headers for path sanitization.",
+                "output": "Path sanitization successful."
+            },
+            {
+                "command": "Check for traversal in POST body: ../../var/log.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Attempt bypass using symbolic link.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Submit traversal payload in cookies.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Inject traversal payload in request headers.",
+                "output": "Access denied. No vulnerability."
+            },
+            {
+                "command": "Check logs for traversal attempts.",
+                "output": "Logs indicate blocked attempts."
+            }
+        ]
+    },
+    {
+        "name": "Execute Buffer Overflow testcase",
+        "status": "failed",
+        "started": "2024-11-30 10:45",
+        "ended": "2024-11-30 11:00",
+        "executedtime": "15 mins",
+        "commands": [
+            {
+                "command": "Submit 10,000 'A' characters in input field.",
+                "output": "Application crashed. Vulnerability confirmed."
+            },
+            {
+                "command": "Submit crafted payload with return address overwrite.",
+                "output": "Payload executed. Arbitrary code run."
+            },
+            {
+                "command": "Inspect stack for overflow.",
+                "output": "Overflow detected."
+            },
+            {
+                "command": "Check logs for segmentation faults.",
+                "output": "Segmentation fault logged."
+            },
+            {
+                "command": "Submit payload in GET parameters.",
+                "output": "Application crashed. Vulnerability confirmed."
+            },
+            {
+                "command": "Inspect memory for corrupted data.",
+                "output": "Memory corruption confirmed."
+            },
+            {
+                "command": "Submit payload in HTTP headers.",
+                "output": "Application crashed. Vulnerability confirmed."
+            },
+            {
+                "command": "Attempt to bypass using safe input.",
+                "output": "Application handled input safely."
+            },
+            {
+                "command": "Test response to unexpected data length.",
+                "output": "Application crashed. Vulnerability confirmed."
+            },
+            {
+                "command": "Inspect binary for memory protection.",
+                "output": "No memory protection found."
+            }
+        ]
+    }
+]

@@ -1,0 +1,363 @@
+[
+    {
+      "taskId": "ea750a7d-1b42-4d19-875b-3072e8bf0fd4",
+      "task": "worker",
+      "status": "in-progress",
+      "date": "2024-11-09",
+      "agent": "agent2",
+      "timeTaken": "9mins",
+      "vulnerable": ["RCE", "CSRF", "Command Injection"]
+    },
+    {
+      "taskId": "7c7acf15-b187-4ab5-918b-c51b9a6e360e",
+      "task": "last",
+      "status": "passed",
+      "date": "2024-11-26",
+      "agent": "agent4",
+      "timeTaken": "16mins",
+      "vulnerable": ["XSS", "RCE", "SQL Injection"]
+    },
+    {
+      "taskId": "086d286f-0120-42a9-9928-449220c40662",
+      "task": "you",
+      "status": "failed",
+      "date": "2024-11-10",
+      "agent": "agent4",
+      "timeTaken": "31mins",
+      "vulnerable": ["SQL Injection", "Command Injection", "RCE"]
+    },
+    {
+      "taskId": "a8ced679-cf22-4001-abf5-b0ee9a30726d",
+      "task": "put",
+      "status": "passed",
+      "date": "2024-11-08",
+      "agent": "agent2",
+      "timeTaken": "34mins",
+      "vulnerable": ["CSRF"]
+    },
+    {
+      "taskId": "f8f8d4d8-9573-41b9-8a07-4f6a7a159ea0",
+      "task": "color",
+      "status": "failed",
+      "date": "2024-11-20",
+      "agent": "agent8",
+      "timeTaken": "35mins",
+      "vulnerable": ["RCE"]
+    },
+    {
+      "taskId": "a57f499d-7920-42ae-bac6-27d51d89de70",
+      "task": "approach",
+      "status": "passed",
+      "date": "2024-11-02",
+      "agent": "agent7",
+      "timeTaken": "5mins",
+      "vulnerable": ["XSS"]
+    },
+    {
+      "taskId": "897b3f45-9310-4a23-b5b0-5c0a9b703e85",
+      "task": "access",
+      "status": "in-progress",
+      "date": "2024-11-23",
+      "agent": "agent3",
+      "timeTaken": "22mins",
+      "vulnerable": ["Command Injection"]
+    },
+    {
+      "taskId": "d6ba2eb1-9608-4069-9a35-6c840f92d413",
+      "task": "element",
+      "status": "failed",
+      "date": "2024-11-18",
+      "agent": "agent1",
+      "timeTaken": "19mins",
+      "vulnerable": ["RCE"]
+    },
+    {
+      "taskId": "a2a990f0-b0d5-4b87-8f66-6f5c9099e033",
+      "task": "alert",
+      "status": "in-progress",
+      "date": "2024-11-03",
+      "agent": "agent5",
+      "timeTaken": "27mins",
+      "vulnerable": ["SQL Injection"]
+    },
+    {
+      "taskId": "b7e9d908-3814-40a0-8b27-56f12e9c31b0",
+      "task": "install",
+      "status": "passed",
+      "date": "2024-11-01",
+      "agent": "agent9",
+      "timeTaken": "13mins",
+      "vulnerable": ["XSS"]
+    },
+    {
+      "taskId": "585eeb02-3c2d-450f-8ef7-56a6f0a92310",
+      "task": "exit",
+      "status": "failed",
+      "date": "2024-11-13",
+      "agent": "agent6",
+      "timeTaken": "9mins",
+      "vulnerable": ["SQL Injection", "RCE"]
+    },
+    {
+      "taskId": "c56b2d35-c1e2-48f2-8b3f-bbfb0fc4b7c0",
+      "task": "query",
+      "status": "in-progress",
+      "date": "2024-11-06",
+      "agent": "agent4",
+      "timeTaken": "42mins",
+      "vulnerable": ["CSRF"]
+    },
+    {
+      "taskId": "7f09d2b4-23f6-4f23-8a87-02db56ffed7b",
+      "task": "complete",
+      "status": "failed",
+      "date": "2024-11-11",
+      "agent": "agent1",
+      "timeTaken": "29mins",
+      "vulnerable": ["SQL Injection", "RCE"]
+    },
+    {
+      "taskId": "e8c07e8d-47cf-4875-bf3c-d9d9ed95d70d",
+      "task": "fetch",
+      "status": "in-progress",
+      "date": "2024-11-16",
+      "agent": "agent7",
+      "timeTaken": "12mins",
+      "vulnerable": ["Command Injection"]
+    },
+    {
+      "taskId": "6fdbf83b-2dff-48f5-b94d-0b98fa74c25d",
+      "task": "response",
+      "status": "passed",
+      "date": "2024-11-05",
+      "agent": "agent10",
+      "timeTaken": "15mins",
+      "vulnerable": ["RCE", "XSS"]
+    },
+    {
+      "taskId": "48a91d92-9d39-4513-b1c9-541c9fd2850c",
+      "task": "layout",
+      "status": "failed",
+      "date": "2024-11-17",
+      "agent": "agent8",
+      "timeTaken": "14mins",
+      "vulnerable": ["CSRF"]
+    },
+    {
+      "taskId": "bc06066b-1e31-44f3-8e9f-36c1c3ab9c8d",
+      "task": "show",
+      "status": "in-progress",
+      "date": "2024-11-19",
+      "agent": "agent6",
+      "timeTaken": "23mins",
+      "vulnerable": ["SQL Injection", "XSS"]
+    },
+    {
+      "taskId": "8d9a42e5-9b72-4ea2-bc07-7e8d7c506c1b",
+      "task": "mark",
+      "status": "failed",
+      "date": "2024-11-12",
+      "agent": "agent9",
+      "timeTaken": "28mins",
+      "vulnerable": ["RCE"]
+    },
+    {
+      "taskId": "8e2c4f91-8ed9-4016-b3c2-b7f24bde4b9f",
+      "task": "define",
+      "status": "in-progress",
+      "date": "2024-11-22",
+      "agent": "agent10",
+      "timeTaken": "18mins",
+      "vulnerable": ["Command Injection", "SQL Injection"]
+    },
+    {
+      "taskId": "d0396a25-bb4b-409e-9c38-4a8362d055c0",
+      "task": "import",
+      "status": "passed",
+      "date": "2024-11-25",
+      "agent": "agent3",
+      "timeTaken": "10mins",
+      "vulnerable": ["XSS"]
+    },
+    {
+        "taskId": "ea750a7d-1b42-4d19-875b-3072e8bf0fd4",
+        "task": "worker",
+        "status": "in-progress",
+        "date": "2024-11-09",
+        "agent": "agent2",
+        "timeTaken": "9mins",
+        "vulnerable": ["RCE", "CSRF", "Command Injection"]
+      },
+      {
+        "taskId": "7c7acf15-b187-4ab5-918b-c51b9a6e360e",
+        "task": "last",
+        "status": "passed",
+        "date": "2024-11-26",
+        "agent": "agent4",
+        "timeTaken": "16mins",
+        "vulnerable": ["XSS", "RCE", "SQL Injection"]
+      },
+      {
+        "taskId": "086d286f-0120-42a9-9928-449220c40662",
+        "task": "you",
+        "status": "failed",
+        "date": "2024-11-10",
+        "agent": "agent4",
+        "timeTaken": "31mins",
+        "vulnerable": ["SQL Injection", "Command Injection", "RCE"]
+      },
+      {
+        "taskId": "a8ced679-cf22-4001-abf5-b0ee9a30726d",
+        "task": "put",
+        "status": "passed",
+        "date": "2024-11-08",
+        "agent": "agent2",
+        "timeTaken": "34mins",
+        "vulnerable": ["CSRF"]
+      },
+      {
+        "taskId": "f8f8d4d8-9573-41b9-8a07-4f6a7a159ea0",
+        "task": "color",
+        "status": "failed",
+        "date": "2024-11-20",
+        "agent": "agent8",
+        "timeTaken": "35mins",
+        "vulnerable": ["RCE"]
+      },
+      {
+        "taskId": "a57f499d-7920-42ae-bac6-27d51d89de70",
+        "task": "approach",
+        "status": "passed",
+        "date": "2024-11-02",
+        "agent": "agent7",
+        "timeTaken": "5mins",
+        "vulnerable": ["XSS"]
+      },
+      {
+        "taskId": "897b3f45-9310-4a23-b5b0-5c0a9b703e85",
+        "task": "access",
+        "status": "in-progress",
+        "date": "2024-11-20",
+        "agent": "agent3",
+        "timeTaken": "22mins",
+        "vulnerable": ["Command Injection"]
+      },
+      {
+        "taskId": "d6ba2eb1-9608-4069-9a35-6c840f92d413",
+        "task": "element",
+        "status": "failed",
+        "date": "2024-11-18",
+        "agent": "agent1",
+        "timeTaken": "19mins",
+        "vulnerable": ["RCE"]
+      },
+      {
+        "taskId": "a2a990f0-b0d5-4b87-8f66-6f5c9099e033",
+        "task": "alert",
+        "status": "in-progress",
+        "date": "2024-11-03",
+        "agent": "agent5",
+        "timeTaken": "27mins",
+        "vulnerable": ["SQL Injection"]
+      },
+      {
+        "taskId": "b7e9d908-3814-40a0-8b27-56f12e9c31b0",
+        "task": "install",
+        "status": "passed",
+        "date": "2024-11-01",
+        "agent": "agent9",
+        "timeTaken": "13mins",
+        "vulnerable": ["XSS"]
+      },
+      {
+        "taskId": "585eeb02-3c2d-450f-8ef7-56a6f0a92310",
+        "task": "exit",
+        "status": "failed",
+        "date": "2024-11-12",
+        "agent": "agent6",
+        "timeTaken": "9mins",
+        "vulnerable": ["SQL Injection", "RCE"]
+      },
+      {
+        "taskId": "c56b2d35-c1e2-48f2-8b3f-bbfb0fc4b7c0",
+        "task": "query",
+        "status": "in-progress",
+        "date": "2024-11-06",
+        "agent": "agent4",
+        "timeTaken": "42mins",
+        "vulnerable": ["CSRF"]
+      },
+      {
+        "taskId": "7f09d2b4-23f6-4f23-8a87-02db56ffed7b",
+        "task": "complete",
+        "status": "failed",
+        "date": "2024-11-15",
+        "agent": "agent1",
+        "timeTaken": "29mins",
+        "vulnerable": ["SQL Injection", "RCE"]
+      },
+      {
+        "taskId": "e8c07e8d-47cf-4875-bf3c-d9d9ed95d70d",
+        "task": "fetch",
+        "status": "in-progress",
+        "date": "2024-11-15",
+        "agent": "agent7",
+        "timeTaken": "12mins",
+        "vulnerable": ["Command Injection"]
+      },
+      {
+        "taskId": "6fdbf83b-2dff-48f5-b94d-0b98fa74c25d",
+        "task": "response",
+        "status": "passed",
+        "date": "2024-11-05",
+        "agent": "agent10",
+        "timeTaken": "15mins",
+        "vulnerable": ["RCE", "XSS"]
+      },
+      {
+        "taskId": "48a91d92-9d39-4513-b1c9-541c9fd2850c",
+        "task": "layout",
+        "status": "failed",
+        "date": "2024-11-17",
+        "agent": "agent8",
+        "timeTaken": "14mins",
+        "vulnerable": ["CSRF"]
+      },
+      {
+        "taskId": "bc06066b-1e31-44f3-8e9f-36c1c3ab9c8d",
+        "task": "show",
+        "status": "in-progress",
+        "date": "2024-11-10",
+        "agent": "agent6",
+        "timeTaken": "23mins",
+        "vulnerable": ["SQL Injection", "XSS"]
+      },
+      {
+        "taskId": "8d9a42e5-9b72-4ea2-bc07-7e8d7c506c1b",
+        "task": "mark",
+        "status": "failed",
+        "date": "2024-11-12",
+        "agent": "agent9",
+        "timeTaken": "28mins",
+        "vulnerable": ["RCE"]
+      },
+      {
+        "taskId": "8e2c4f91-8ed9-4016-b3c2-b7f24bde4b9f",
+        "task": "define",
+        "status": "in-progress",
+        "date": "2024-11-25",
+        "agent": "agent10",
+        "timeTaken": "18mins",
+        "vulnerable": ["Command Injection", "SQL Injection"]
+      },
+      {
+        "taskId": "d0396a25-bb4b-409e-9c38-4a8362d055c0",
+        "task": "import",
+        "status": "passed",
+        "date": "2024-11-25",
+        "agent": "agent3",
+        "timeTaken": "10mins",
+        "vulnerable": ["XSS"]
+      }
+  ]
+  

@@ -1,0 +1,7 @@
+.carousel .control-dots .dot {
+    width: 20px;
+    height: 1px; /* Make the dots appear as a line */
+    border-radius: 0; /* Remove the border radius to make it a straight line */
+    background: #fff; /* Change the color as needed */
+    margin: 0 5px; /* Adjust the spacing between the dots */
+  }

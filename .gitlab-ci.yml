@@ -1,0 +1,115 @@
+stages:
+  - pre-clean
+  - build
+  - post-clean
+  - deploy
+
+variables:
+  IMAGE_NAME_BACKEND: "442042539545.dkr.ecr.eu-central-1.amazonaws.com/hexashield/backend"
+  REGION: "eu-central-1"
+  DOCKER_BUILDX_PLATFORMS: "linux/amd64"
+  IMAGE_TAG: "${CI_COMMIT_SHA}"
+  EC2_HOST: "3.72.61.250"
+  EC2_USER: "ec2-user"
+  S3_BUCKET_NAME: "hexashield-frontend-app"
+  CLOUD_FRONT_DISTRIBUTION_ID: "ER0EROWY8B8RK"
+
+pre-clean-docker:
+  stage: pre-clean
+  image: docker:24
+  services:
+    - docker:dind
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"' # Only run on the main branch
+      when: always
+    - if: '$CI_COMMIT_BRANCH != "main"' # Allow manual runs for other branches
+      when: manual
+  script:
+    - echo "Pre-clean Removing all Docker containers, images, and volumes..."
+    - docker container prune -f || true
+    - docker image prune -af || true
+    - docker volume prune -f || true
+
+build-and-push-backend-image:
+  stage: build
+  image: docker:24
+  services:
+    - docker:dind
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"' # Only run on the main branch
+      when: always
+    - if: '$CI_COMMIT_BRANCH != "main"' # Allow manual runs for other branches
+      when: manual
+  script:
+    - echo "Logging in to AWS ECR..."
+    - aws configure set default.region "$REGION"
+    - aws ecr get-login-password --region "$REGION" | docker login --username AWS --password-stdin 442042539545.dkr.ecr.eu-central-1.amazonaws.com
+    - echo "Building Backend Docker image with BuildKit..."
+    - docker buildx build --no-cache --platform="$DOCKER_BUILDX_PLATFORMS" -t "$IMAGE_NAME_BACKEND:$IMAGE_TAG" -f backend/Dockerfile backend/.
+    - echo "Pushing Backend Docker image to ECR..."
+    - docker push "$IMAGE_NAME_BACKEND:$IMAGE_TAG"
+
+post-clean-docker:
+  stage: post-clean
+  image: docker:24
+  services:
+    - docker:dind
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"' # Only run on the main branch
+      when: always
+    - if: '$CI_COMMIT_BRANCH != "main"' # Allow manual runs for other branches
+      when: manual
+  script:
+    - echo "Post-clean Removing all Docker containers, images, and volumes..."
+    - docker container prune -f || true
+    - docker image prune -af || true
+    - docker volume prune -f || true
+
+deploy-frontend-to-cloudfront:
+  stage: deploy
+  image: node:16
+  needs: [] # Run independently of other jobs
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"' # Only run on the main branch
+      when: always
+    - if: '$CI_COMMIT_BRANCH != "main"' # Allow manual runs for other branches
+      when: manual
+  script:
+    - echo "Installing frontend dependencies..."
+    - cd frontend
+    - rm -rf dist node_modules .yarn .vite
+    - yarn install
+    - echo "Building the frontend..."
+    - yarn build -d
+    - echo "Deploying frontend to S3..."
+    - aws s3 sync dist/ s3://$S3_BUCKET_NAME/ --region $REGION --delete --exact-timestamps --debug
+    - echo "Invalidating CloudFront cache..."
+    - aws cloudfront create-invalidation --distribution-id $CLOUD_FRONT_DISTRIBUTION_ID --paths "/*"
+
+deploy-backend-to-ec2:
+  stage: deploy
+  image: amazon/aws-cli:2.13.7
+  # needs:
+  #   - build-and-push-backend-image
+  needs: [] # Run independently of other jobs
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"' # Only deploy on the main branch
+      when: always
+    - if: '$CI_COMMIT_BRANCH != "main"' # Allow manual deployments for other branches
+      when: manual
+  script:
+    - echo "Deploying to EC2 Instance..."
+    # Dynamically create the private key from GitLab variables
+    - echo "$SSH_PRIVATE_KEY" > private.pem
+    - chmod 600 private.pem
+    - echo "Testing connection to EC2 instance..."
+    - ssh -o StrictHostKeyChecking=no -i private.pem "$EC2_USER@$EC2_HOST" "echo 'Connected to EC2'"
+    - echo "Pulling the latest Docker image on EC2..."
+    - ssh -o StrictHostKeyChecking=no -i private.pem "$EC2_USER@$EC2_HOST" "
+        aws ecr get-login-password --region $REGION | docker login --username AWS --password-stdin 442042539545.dkr.ecr.eu-central-1.amazonaws.com &&
+        docker pull $IMAGE_NAME_BACKEND:$IMAGE_TAG &&
+        docker stop backend || true &&
+        docker rm backend || true &&
+        docker run -d --name backend -p 5000:5000 -p 5001:5001 -p 5003:5003 --env-file /home/ec2-user/hexashield-backend/.env $IMAGE_NAME_BACKEND:$IMAGE_TAG
+      "
+    - echo "Deployment completed successfully."

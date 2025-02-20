@@ -1,0 +1,57 @@
+image: node:18
+
+# Define cache to speed up subsequent builds
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
+
+stages:
+  - install
+  - build
+  - deploy
+
+# Install dependencies
+install:
+  stage: install
+  script:
+    - rm -rf node_modules # Remove node_modules folder
+    - rm -rf dist # Remove dist folder
+    - yarn install # Reinstall dependencies
+  only:
+    - main
+    - development
+
+# Build the project
+build:
+  stage: build
+  script:
+    - yarn run build
+  artifacts:
+    paths:
+      - dist/
+  only:
+    - main
+    - development
+
+# Deploy to GitHub Pages using deploy.sh
+deploy_github:
+  stage: deploy
+  script:
+    - chmod +x deploy.sh # Make deploy.sh executable
+    - ./deploy.sh # Run the deploy script for GitHub Pages
+  only:
+    - main
+    - development
+
+# Deploy to GitLab Pages
+deploy_gitlab:
+  stage: deploy
+  script:
+    - mv dist public # Move the dist folder to public for GitLab Pages
+  artifacts:
+    paths:
+      - public # GitLab Pages expects files in the public folder
+  only:
+    - main
+    - development
